@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Music Player</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="player">
+
+            <!-- TOP -->
+            <div class="top">
+
+                <div class="song">
+                    <div class="avatar" id="cover"></div>
+
+                    <div class="info">
+                        <h4 id="title">Perfect</h4>
+                        <p id="artist">Ed Sheeran</p>
+                    </div>
+                </div>
+
+                <div class="icons">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+            </div>
+
+            <!-- CENTER IMAGE -->
+            <div class="imageBox">
+                <img id="mainImg"
+                    src="https://i.scdn.co/image/ab67616d0000b273f42f455d4dfd4ea0d0f5d9b3"
+                    alt="">
+            </div>
+
+            <!-- SONG TIME -->
+            <div class="time">
+
+                <span id="current">0:00</span>
+
+                <span id="duration">0:30</span>
+
+            </div>
+
+            <!-- PROGRESS -->
+            <div class="middle">
+                <input type="range" min="0" max="100" value="0"
+                    class="progress" id="progress">
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="buttons">
+
+                <i class="fa-solid fa-backward-step" id="prev"></i>
+
+                <i class="fa-solid fa-play play" id="play"></i>
+
+                <i class="fa-solid fa-forward-step" id="next"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <audio id="audio"></audio>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

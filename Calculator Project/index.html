@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        font-weight: bolder;
+        align-items: center;
+        justify-content: center;
+        background-color: #ee94da;
+        color: white;
+        height: 90vh;
+      }
+      .calculator {
+        margin: 120px 0px;
+        height: 500px;
+        width: 300px;
+        padding: 12px 17px;
+        background-color: #2d2a2a;
+        border-radius: 14px;
+        /* border: 2px solid black; */
+      }
+      .btns {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        margin: 8px;
+      }
+      .input-space {
+        font-size: 2rem;
+        height: 10vh;
+        /* border: 2px solid black; */
+        display: flex;
+        align-items:end;
+        padding: 12px 20px;
+        justify-content: end;
+        margin-bottom: 15px;
+      }
+      button {
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 23px 22px;
+        background-color: #2d2a2a;
+        border-radius: 10px;
+      }
+      .equal {
+        font-size: 20px;
+        padding: 0px 20px;
+        width: 200%;
+        background-color: orange;
+      }
+      /* button:hover {
+        background-color: #dfdfdf;
+        transition: 0.3s ease-in-out;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="input-space">0</div>
+      <div class="btns">
+        <button>AC</button>
+        <button>DEL</button>
+        <button>%</button>
+        <button class="one">/</button>
+        <button class="two">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>+</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>*</button>
+        <button>0</button>
+        <button>.</button>
+        <button class="equal">=</button>
+      </div>
+    </div>
+    <script>
+      let space = document.querySelector(".input-space"); // your display
+      let buttons = document.querySelectorAll(".btns button"); // all buttons
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          let value = btn.innerHTML;
+
+          if (space.innerHTML === "0" && !isNaN(value)) {
+            // If current is 0 and clicked button is a number, replace 0
+            space.innerHTML = value;
+          } else if (value === "AC") {
+            // Clear display
+            space.innerHTML = "0";
+          } else if (value === "DEL") {
+            // Delete last character
+            space.innerHTML = space.innerHTML.slice(0, -1) || "0";
+          } else if (value === "=") {
+            // Evaluate expression
+            try {
+              space.innerHTML = eval(space.innerHTML);
+            } catch {
+              space.innerHTML = "Error";
+            }
+          } else {
+            // Append numbers or operators
+            space.innerHTML += value;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
